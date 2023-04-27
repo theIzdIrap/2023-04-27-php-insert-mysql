@@ -12,7 +12,9 @@ if (!$conn) {
  
 echo "Connected successfully";
 $ip = $_SERVER['REMOTE_ADDR'];
-$sql = "INSERT INTO tbbb (ip) VALUES ('$ip')";
+$time = date('d-m-y h:i:s');
+$browser = $_SERVER['HTTP_USER_AGENT'];
+$sql = "INSERT INTO tbbb (ip, browser, time) VALUES ('$ip', '$browser', '$time')";
 if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
 } else {
